@@ -2,8 +2,8 @@
 Именование переменных, массивов, названий структур, функций выполняется в camelCase (templateName, paddingTop, accessTime)
 ### Оформление кода
 Блоки кода оформляются в формате:
->if (condition)
->{
+>if (condition)  
+>{  
   >...
 >}
 >else
