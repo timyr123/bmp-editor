@@ -83,3 +83,143 @@ h2.biWidth=h2.biWidth/2; ; //Уменьшение ширины в два раз�
 return 0;
 
 }
+
+int write_file1()
+
+{
+
+int i,j;
+
+fw = fopen(outfile1 , "w");
+
+perror("open outfile1");
+
+fwrite(&h1 , sizeof(h1) , 1 , fw);
+
+fwrite(&h2 , sizeof(h2) , 1 , fw);
+
+for ( i = 0 ; i < h2.biHeight ; i++ )
+
+{
+
+for ( j = 0 ; j < h2.biWidth ; j++ )
+
+fwrite( &rastr[i][j] , 1 , 3 , fw );
+
+fwrite( &padding , 1 , sz_padding , fw );
+
+}
+
+return 0;
+
+}
+
+int write_file2()
+
+{
+
+int i,j;
+
+fw = fopen(outfile2 , "w");
+
+perror("open outfile2");
+
+fwrite(&h1 , sizeof(h1) , 1 , fw);
+
+fwrite(&h2 , sizeof(h2) , 1 , fw);
+
+for ( i =h2.biHeight ; i < h2.biHeight*2 ; i++ )
+
+{
+
+for ( j = 0 ; j < h2.biWidth ; j++ )
+
+fwrite( &rastr[i][j] , 1 , 3 , fw );
+
+fwrite( &padding , 1 , sz_padding , fw );
+
+}
+
+return 0;
+
+}
+
+int write_file3()
+
+{
+
+int i,j;
+
+fw = fopen(outfile3 , "w");
+
+perror("open outfile3");
+
+fwrite(&h1 , sizeof(h1) , 1 , fw);
+
+fwrite(&h2 , sizeof(h2) , 1 , fw);
+
+for ( i = 0 ; i < h2.biHeight ; i++ )
+
+{
+
+for ( j = h2.biWidth ; j < h2.biWidth*2 ; j++ )
+
+fwrite( &rastr[i][j] , 1 , 3 , fw );
+
+fwrite( &padding , 1 , sz_padding , fw );
+
+}
+
+return 0;
+
+}
+
+int write_file4()
+
+{
+
+int i,j;
+
+fw = fopen(outfile4 , "w");
+
+perror("open outfile4");
+
+fwrite(&h1 , sizeof(h1) , 1 , fw);
+
+fwrite(&h2 , sizeof(h2) , 1 , fw);
+
+for ( i =h2.biHeight ; i < h2.biHeight*2 ; i++ )
+
+{
+
+for ( j = h2.biWidth ; j < h2.biWidth*2 ; j++ )
+
+fwrite( &rastr[i][j] , 1 , 3 , fw );
+
+fwrite( &padding , 1 , sz_padding , fw );
+
+}
+
+return 0;
+
+}
+
+int main()
+
+{
+
+read_file();
+
+change_head();
+
+write_file1();
+
+write_file2();
+
+write_file3();
+
+write_file4();
+
+return 0;
+
+}
