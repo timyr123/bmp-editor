@@ -4,6 +4,7 @@
     #include <stdio.h>
     #include <stdlib.h>
 
+
     file *openFile (char *fileName, char *openAction) 
     /* 
 	Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над
@@ -18,6 +19,8 @@
 
 	    return inputFile;
      }
+     
+     
     int checkLength(int arrayLength)
     /* 
         Функция проверки длины массива на корректность.
