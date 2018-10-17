@@ -16,7 +16,6 @@
     */
     {
 	    file *inputFile = fopen(fileName, openAction);
-
 	    return inputFile;
     }
      
