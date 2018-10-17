@@ -15,7 +15,8 @@ file *openFile (char *fileName, char *openAction)
     return inputFile;
  }
  
-void fileRead()
+void fileRead(int i)
 {
+  /* Принимает номер бмп */
   /* Чтение "хедера" бмп */
 }
