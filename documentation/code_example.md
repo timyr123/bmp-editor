@@ -18,7 +18,7 @@
 	    file *inputFile = fopen(fileName, openAction);
 
 	    return inputFile;
-     }
+    }
      
      
     int checkLength(int arrayLength)
