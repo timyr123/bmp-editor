@@ -4,7 +4,17 @@
     #include <stdio.h>
     #include <stdlib.h>
 
+    file *openFile (char *fileName, char *openAction) 
+    {
+	    /* Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над файлом(чтение/запись);
+	    Создает указатель на файл;
+	    Открывает файл;
+	    Возвращает указатель на файл; */
 
+	    file *inputFile = fopen(fileName, openAction);
+
+	    return inputFile;
+     }
     int checkLength(int arrayLength)
     /* 
         Функция проверки длины массива на корректность.
