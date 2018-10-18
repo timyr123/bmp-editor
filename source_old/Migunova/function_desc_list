@@ -1,1 +1,40 @@
-fjsmh
+file *openFile (char *fileName, char *openAction) 
+/* 
+Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над
+файлом(чтение("r")/запись("w"));
+    
+Создает указатель на файл;
+Открывает файл;
+Возвращает указатель на файл; 
+*/
+{
+    file *inputFile = fopen(fileName, openAction);
+    return inputFile;
+}
+
+
+void fileRead(int i)
+{
+  /* Принимает номер бмп */
+  /* Чтение "хедера" бмп */
+}
+
+
+int chet(char *firstFile, char *secondFile)
+{
+  /* Принимает два бмп изображения*/
+  /* Считает количество разных пикселей в изображениях*/
+  /* На выход число*/
+}
+
+
+int main()
+{
+    printf("\n");
+    openFile (fileName,openAction) ;//1 file
+    fileRead( i);
+    openFile (fileName,openAction) ;//2 file
+    fileRead( i);
+    chet(firstFile, secondFile);
+    return 0;
+}
