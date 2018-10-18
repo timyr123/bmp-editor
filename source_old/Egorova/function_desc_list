@@ -1,0 +1,36 @@
+file *openFile (char *fileName, char *openAction) 
+/* 
+Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над
+файлом(чтение("r")/запись("w"));
+    
+Создает указатель на файл;
+Открывает файл;
+Возвращает указатель на файл; 
+*/
+{
+    file *inputFile = fopen(fileName, openAction);
+    return inputFile;
+}
+
+void fileRead(int i)
+{
+  /* Принимает номер бмп */
+  /* Чтение "хедера" бмп */
+}
+
+int chet (char *firstFile, char *secondFile)
+{
+/*функция принимает на вход два bmp файла
+сравнивает изображения попиксельно
+на выходе получается число*/
+}
+
+int main()
+{
+    openFile(firstFile);
+    openFile(secondFile);
+    fileRead(firstFile);
+    fileRead(secondFile);
+    chet(firstFile, secondFile));
+    return 0;
+}
