@@ -20,3 +20,9 @@ void fileRead(int i)
   /* Принимает номер бмп */
   /* Чтение "хедера" бмп */
 }
+
+BYTE*** mallocImage (struct bmp)
+{
+
+}
+
