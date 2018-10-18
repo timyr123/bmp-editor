@@ -18,9 +18,11 @@ void fileRead(int i)
   /* Чтение "хедера" бмп */
 }
 
-int chet (mas1[][][], mas[][][])
+int chet (char *firstFile, char *secondFile)
 {
-/if element != then chet++
+/*функция принимает на вход два bmp файла
+сравнивает изображения попиксельно
+на выходе получается число*/
 }
 
 int main()
