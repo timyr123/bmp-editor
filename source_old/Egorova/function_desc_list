@@ -27,6 +27,9 @@ int chet (char *firstFile, char *secondFile)
 
 int main()
 {
+    openFile(firstFile, secondFile);
+    fileRead(firstFile, secondFile);
+    chet(firstFile, secondFile));
     printf("\n");
     dataInput();
     return 0;
