@@ -1,0 +1,28 @@
+char* nameCreate() 
+{
+ /*Берет название.bmp из конфига */
+}
+
+file *openFile (char *fileName, char *openAction) 
+{
+    /* Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над файлом(чтение/запись);
+    Создает указатель на файл;
+    Открывает файл;
+    Возвращает указатель на файл; */
+
+    file *inputFile = fopen(fileName, openAction);
+
+    return inputFile;
+ }
+ 
+void fileRead(int i)
+{
+  /* Принимает номер бмп */
+  /* Чтение "хедера" бмп */
+}
+
+BYTE*** mallocImage (struct bmp)
+{
+
+}
+
