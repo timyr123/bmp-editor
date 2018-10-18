@@ -27,10 +27,10 @@ int chet (char *firstFile, char *secondFile)
 
 int main()
 {
-    openFile(firstFile, secondFile);
-    fileRead(firstFile, secondFile);
+    openFile(firstFile);
+    openFile(secondFile);
+    fileRead(firstFile);
+    fileRead(secondFile);
     chet(firstFile, secondFile));
-    printf("\n");
-    dataInput();
     return 0;
 }
