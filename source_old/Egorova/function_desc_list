@@ -1,1 +1,31 @@
-if
+file *openFile (char *fileName, char *openAction) 
+/* 
+Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над
+файлом(чтение("r")/запись("w"));
+    
+Создает указатель на файл;
+Открывает файл;
+Возвращает указатель на файл; 
+*/
+{
+    file *inputFile = fopen(fileName, openAction);
+    return inputFile;
+}
+
+void fileRead(int i)
+{
+  /* Принимает номер бмп */
+  /* Чтение "хедера" бмп */
+}
+
+int chet (mas1[][][], mas[][][])
+{
+/if element != then chet++
+}
+
+int main()
+{
+    printf("\n");
+    dataInput();
+    return 0;
+}
