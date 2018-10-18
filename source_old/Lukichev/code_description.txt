@@ -1,0 +1,80 @@
+#include "stdio.h"
+#include "string.h"
+
+file *openFile (char *fileName, char *openAction)
+	/*
+	Функция принимает строку, содержащую имя файла и 
+	строку наименования действия, производимого над файлом
+	(чтение("r")/запись("w"));
+	
+	Создает указатель на файл;
+	Открывает файл;
+	Возвращает указатель на файл;
+	*/
+    {
+	FILE * inputFile = fopen(fileName, openAction);
+    return inputFile;
+	}
+
+readDescription(file *inputFile)
+	/*
+	Функция принимает указатель на файл и читает данные о графическом файле
+	*/
+	{
+    fread(&type, 2, 1, inputFile);
+    fread(&size, 4, 1, inputFile);
+    fread(&res, 4, 1, inputFile);
+    fread(&off, 4, 1, inputFile);
+    fread(&ssz, 4, 1, inputFile);
+    fread(&w, 4, 1, inputFile);
+    fread(&h, 4, 1, inputFile);
+    fread(end, 4, 7, inputFile);
+	}
+
+int findPadding()
+	/*
+	Функция вычисляет пустой отступ в конце строки пикселей
+	*/
+	{
+	int padding=(size-off-h*w*3)/h; 
+	return padding;
+	}
+    
+readPixels(file *inputFile)
+	/*
+	Функция принимает указатель на файл и переписывает
+	данные пикселей в массив
+	*/
+	int i,j;
+	BYTE pad[20]
+	for(i=0; i<h ; i++)
+	{
+		for(j=0; j<w ; j++)
+			fread(&rastr[i][j], 3, 1, inputFile);
+			fread(pad, padding, 1, inputFile);        
+	}	
+for(i=0; i<h ; i++)
+	for(j=0; j<w ; j++)
+{
+		rastr[i][j].green = 255- rastr[i][j].green;
+		rastr[i][j].red = 255 - rastr[i][j].red;
+		rastr[i][j].blue = 255-rastr[i][j].blue;
+}
+
+    fwrite(&type, 2, 1, fout);
+    fwrite(&size, 4, 1, fout);
+    fwrite(&res, 4, 1, fout);
+    fwrite(&off, 4, 1, fout);
+    fwrite(&ssz, 4, 1, fout);
+    fwrite(&w, 4, 1, fout);
+    fwrite(&h, 4, 1, fout);
+    fwrite(end, 4, 7, fout);
+
+for(i=0; i<h ; i++)
+{
+	for(j=0; j<w ; j++)
+		fwrite(&rastr[i][j], 3, 1, fout);
+        fwrite(pad, padding, 1, fout);        
+}	
+return 0; 
+}
