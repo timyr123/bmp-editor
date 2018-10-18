@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <malloc.h>
+int checkParams(int widthPicture, int heightPicture, int offsetwidthPicture, int offsetheightPicture , 
+int realwidthPicture, int realheightPicture)
+{
+/*prinimaet parametri i proveryet ix na istinnost*/
+
+return 1;
+}
+
+
+file *openFile (char *fileName, char *openAction) 
+{
+    /* Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над файлом(чтение/запись);
+    Создает указатель на файл;
+    Открывает файл;
+    Возвращает указатель на файл; */
+
+    file *inputFile = fopen(fileName, openAction);
+
+    return inputFile;
+}
+
+fseek 
+
