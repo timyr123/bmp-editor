@@ -45,33 +45,31 @@ int findPadding()
 	return padding;
 	}
     
-readPixels(file *inputFile, struct PIXEL ** rastr, struct bmp)
+readPixels(file *inputFile, struct PIXEL ** rastr, struct bmp structDescription, int padding)
 	/*
 	Функция принимает указатель на файл и переписывает
 	данные пикселей в массив struktur
-
-	YA NE ZNAU CHTO ETO ZA "STRUCT BMP", YA SKOPIPASTIL U MALTSEVA
 	*/
 	{
 	int i,j;
 	BYTE pad[20]
-	for(i=0; i<h ; i++)
+	for(i=0; i<structDescription.h ; i++)
 	{
-		for(j=0; j<w ; j++)
+		for(j=0; j<structDescription.w ; j++)
 			fread(&rastr[i][j], 3, 1, inputFile);
 			fread(pad, padding, 1, inputFile);        
 	}
 	}
 
-int inverse(*massivName)
+int inverse(struct PIXEL ** rastr, struct bmp structDescription)
 	/*
 	Prinimayet ukazatel na massiv
 	Funkciya invertiruet znacheniya cvetov pikseley:
 	
 	*/
 	{	
-	for(i=0; i<h ; i++)
-		for(j=0; j<w ; j++)
+	for(i=0; i<structDescription.h ; i++)
+		for(j=0; j<structDescription.w ; j++)
 	{
 			rastr[i][j].green = 255 - rastr[i][j].green;
 			rastr[i][j].red = 255 - rastr[i][j].red;
@@ -79,7 +77,7 @@ int inverse(*massivName)
 	}
 	}
 
-writeFile (file *outputFile, *massivName)
+writeFile (struct PIXEL ** rastr, struct bmp structDescription, FILE *outputFile)
 	/*
 	Funkciya zapisyvayet danniye massiva v vihodnoi file
 	*/
@@ -92,9 +90,9 @@ writeFile (file *outputFile, *massivName)
 	fwrite(&structDescription.w, 4, 1, outputFile);
 	fwrite(&structDescription.h, 4, 1, outputFile);
 	fwrite(structDescription.end, 4, 7, outputFile);
-	for(i=0; i<h ; i++)
+	for(i=0; i<structDescription.h ; i++)
 	{
-		for(j=0; j<w ; j++)
+		for(j=0; j<structDescription.w ; j++)
 			fwrite(&rastr[i][j], 3, 1, outputFile);
 		fwrite(pad, padding, 1, outputFile);        
 	}
