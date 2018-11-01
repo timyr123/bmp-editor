@@ -1,0 +1,17 @@
+int read(struct PIXEL ** rustr, struct bmp)
+	int lin(printf ("vvedite kol-vo liniy:");scanf("%d",&lin);)\
+	//ввод кол-во линий
+
+	int lw=w/(lin*2);-количесвто пиксилейй занимаемое 1 линией по ширине
+	int s=lw;-долнительная переменная для цикл
+	int lh=h/(lin*2);-количесвто пиксилейй занимаемое 1 линией по высоте
+	int u=lh;-долнительная переменная для цикла
+	int H=1;-долнительная переменная для цикл
+
+int Vertikalnaya ( struct PIXEL ** rustr,srtruct bmp, int lw ,int H ,int s,,int j,int i) 
+//рисует вертикальные линии
+int Gorizontanaya ( struct PIXEL ** rustr,srtruct bmp, int lh, int u,int w ,int j,int i)
+//рисует горизонтальные линии
+   
+
+изменение картники, функция рисует линии, количество, которых задает пользователь
