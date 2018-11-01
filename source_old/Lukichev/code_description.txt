@@ -11,24 +11,29 @@ file *openFile (char *fileName, char *openAction)
 	Открывает файл;
 	Возвращает указатель на файл;
 	*/
-    {
+
+openFile (char *fileName, char *openAction)
+	{
 	FILE * inputFile = fopen(fileName, openAction);
-    return inputFile;
+	return inputFile;
 	}
 
 readDescription(file *inputFile)
 	/*
-	Функция принимает указатель на файл и читает данные о графическом файле
+	Функция принимает указатель на файл и schitivayet
+	данные о графическом файле v strukturu, kotoraya
+	doljna soderjat' eti danniye s opisaniem
 	*/
 	{
-    fread(&type, 2, 1, inputFile);
-    fread(&size, 4, 1, inputFile);
-    fread(&res, 4, 1, inputFile);
-    fread(&off, 4, 1, inputFile);
-    fread(&ssz, 4, 1, inputFile);
-    fread(&w, 4, 1, inputFile);
-    fread(&h, 4, 1, inputFile);
-    fread(end, 4, 7, inputFile);
+	fread(&structDescription.type, 2, 1, inputFile);
+	fread(&structDescription.size, 4, 1, inputFile);
+	fread(&structDescription.res, 4, 1, inputFile);
+	fread(&structDescription.off, 4, 1, inputFile);
+	fread(&structDescription.ssz, 4, 1, inputFile);
+	fread(&structDescription.w, 4, 1, inputFile);
+	fread(&structDescription.h, 4, 1, inputFile);
+	fread(structDescription.end, 4, 7, inputFile);
+	return structDescription;
 	}
 
 int findPadding()
@@ -40,11 +45,14 @@ int findPadding()
 	return padding;
 	}
     
-readPixels(file *inputFile)
+readPixels(file *inputFile, struct PIXEL ** rastr, struct bmp)
 	/*
 	Функция принимает указатель на файл и переписывает
-	данные пикселей в массив
+	данные пикселей в массив struktur
+
+	YA NE ZNAU CHTO ETO ZA "STRUCT BMP", YA SKOPIPASTIL U MALTSEVA
 	*/
+	{
 	int i,j;
 	BYTE pad[20]
 	for(i=0; i<h ; i++)
@@ -52,29 +60,42 @@ readPixels(file *inputFile)
 		for(j=0; j<w ; j++)
 			fread(&rastr[i][j], 3, 1, inputFile);
 			fread(pad, padding, 1, inputFile);        
+	}
+	}
+
+int inverse(*massivName)
+	/*
+	Prinimayet ukazatel na massiv
+	Funkciya invertiruet znacheniya cvetov pikseley:
+	
+	*/
+	{	
+	for(i=0; i<h ; i++)
+		for(j=0; j<w ; j++)
+	{
+			rastr[i][j].green = 255 - rastr[i][j].green;
+			rastr[i][j].red = 255 - rastr[i][j].red;
+			rastr[i][j].blue = 255 - rastr[i][j].blue;
+	}
+	}
+
+writeFile (file *outputFile, *massivName)
+	/*
+	Funkciya zapisyvayet danniye massiva v vihodnoi file
+	*/
+	{
+	fwrite(&structDescription.type, 2, 1, outputFile);
+	fwrite(&structDescription.size, 4, 1, outputFile);
+	fwrite(&structDescription.res, 4, 1, outputFile);
+	fwrite(&structDescription.off, 4, 1, outputFile);
+	fwrite(&structDescription.ssz, 4, 1, outputFile);
+	fwrite(&structDescription.w, 4, 1, outputFile);
+	fwrite(&structDescription.h, 4, 1, outputFile);
+	fwrite(structDescription.end, 4, 7, outputFile);
+	for(i=0; i<h ; i++)
+	{
+		for(j=0; j<w ; j++)
+			fwrite(&rastr[i][j], 3, 1, outputFile);
+		fwrite(pad, padding, 1, outputFile);        
+	}
 	}	
-for(i=0; i<h ; i++)
-	for(j=0; j<w ; j++)
-{
-		rastr[i][j].green = 255- rastr[i][j].green;
-		rastr[i][j].red = 255 - rastr[i][j].red;
-		rastr[i][j].blue = 255-rastr[i][j].blue;
-}
-
-    fwrite(&type, 2, 1, fout);
-    fwrite(&size, 4, 1, fout);
-    fwrite(&res, 4, 1, fout);
-    fwrite(&off, 4, 1, fout);
-    fwrite(&ssz, 4, 1, fout);
-    fwrite(&w, 4, 1, fout);
-    fwrite(&h, 4, 1, fout);
-    fwrite(end, 4, 7, fout);
-
-for(i=0; i<h ; i++)
-{
-	for(j=0; j<w ; j++)
-		fwrite(&rastr[i][j], 3, 1, fout);
-        fwrite(pad, padding, 1, fout);        
-}	
-return 0; 
-}
