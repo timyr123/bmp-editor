@@ -1,1 +1,11 @@
+void fileWrite (int i, struct bmp, BYTE*** massivStruct)
+{
+	/* Принимает номер бмп, структуру, и трёхмерный массив*/
+	/* Запись "хедера" бмп */
+}
 
+void mallocRelease(struct bmp,BYTE*** massivStruct)
+{
+	/*принимает структуру и трёхмерный массив*/
+	/*освобождает память трёхмерного массива*/
+}
