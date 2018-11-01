@@ -1,1 +1,82 @@
+Pervay functia- Otkruvaet vxodnoy file.
+Vtoray functia- Chituvaet bmp informaciu 
 
+
+
+1)
+file *openFile (char *fileName, char *openAction) 
+{
+    /* Функция принимает строку, содержащую имя файла и строку наименования действия, производимого над файлом(чтение/запись);
+    Создает указатель на файл;
+    Открывает файл;
+    Возвращает указатель на файл; */
+
+    file *inputFile = fopen(fileName, openAction);
+
+    return inputFile;
+}
+2)
+void fileRead(struct bmp)
+{
+  /* Чтение "хедера" бмп */3
+}
+BYTE*** mallocImage(struct bmp)
+/prinimaet vusoyu i shirinu iz strukturu, razmer structurs*/
+/*vudelaet pamyt pod dvumernuy masssiv*/
+/*vosvrushaet edvumernuy massiv pixele*/
+3) void cvet0(struct bpm)
+/*prinimaet massiv pixeley*/
+/*Sozdaet 3 peremennnyx (3 cveta perovogo pixela)*/
+
+(((int cvet1=rastr[0][0].blue;
+int cvet2=rastr[0][0].green;
+int cvet3=rastr[0][0].red;))))
+
+/*vosvrashaet 3 cveta*/
+4)/*pervuy na zapis file
+file *openFile (char *fileName, char *openAction) 
+{
+    /* Функция принимает строку, содержащую имя файла na zapis и строку наименования действия, производимого над файлом(чтение/запись);
+    Создает указатель на файл;
+    Открывает файл;
+    Возвращает указатель на файл; */
+
+    file *inputFile = fopen(fileName, openAction);
+
+    return inputFile;
+}
+
+5) /*vtoroi na zapis file
+file *openFile (char *fileName, char *openAction) 
+{
+    /* Функция принимает строку, содержащую имя файла na zapis и строку наименования действия, производимого над файлом(чтение/запись);
+    Создает указатель на файл;
+    Открывает файл;
+    Возвращает указатель на файл; */
+
+    file *inputFile = fopen(fileName, openAction);
+
+    return inputFile;
+}
+6)
+void fileRead2(struct2 bmp)
+{
+  /* Чтение "хедера" бмп 1 fila dly zapisi */
+}
+7)
+void fileRead2(struct3 bmp)
+{
+  /* Чтение "хедера" бмп 2 fila dly zapisi */
+}
+7) void change1(struct bmp,struct bmp2)
+{Prinimaet inf o vxodnom faile i faile dly zapis
+Vozvrashaet novui massiv pixeley na zapis v 1 file
+}
+7) void change2(struct bmp,struct3)
+{Prinimaet inf o vxodnom faile i faile dly zapis
+Vozvrashaet novui massiv pixeley na zapis v 2 file
+}
+8)void filewrite1(Struct2)
+{Zapisuvaet inform v 1 vuxodnoy file
+9)void filewrite1(Struct3)
+{Zapisuvaet inform v 1 vuxodnoy file
